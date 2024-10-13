@@ -15,7 +15,7 @@ export const Experiences = (props: PropsWithChildren<{className?:string}>) =>  {
                     tailored to meet the unique needs of the spatial industry.
                 </Experience>
                 <Experience from={"2021"} to={"2023"} title={"Apprenticeship as a Developer"} company={"Couleur CE"} link="https://www.couleur.fr/">
-                    Building and improving an application with extensive functionality for various enterprise's works council. 
+                    Building and improving an application with extensive functionality for various enterprise&apos;s works council. 
                 </Experience>
                 <Experience from={"2021"} to={"2021"} title={"Intership as a Developer"} company={"Couleur CE"} link="https://www.couleur.fr/">
                     Learned to work effectively in a team and apply the skills I acquired in school.

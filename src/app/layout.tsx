@@ -16,8 +16,7 @@ const grandStander = localFont({
 
 export const metadata: Metadata = {
   title: "Lilian Garrido • Fullstack Developer",
-  description: "Fullstack developer living in Toulouse, France.",
-  viewport: "width=device-width, initial-scale=1.0"
+  description: "Fullstack developer living in Toulouse, France."
 };
 
 export default function RootLayout({
