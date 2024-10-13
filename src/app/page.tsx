@@ -6,6 +6,7 @@ import { Profile } from "./_components/Profile";
 import { Skills } from "./_components/Skills";
 import { Experiences } from "./_components/Experiences";
 import { Studies } from "./_components/Studies";
+import { Projects } from "./_components/Projects";
 
 export default function Home() {
   return (
@@ -19,15 +20,10 @@ export default function Home() {
           </Section>
         </Column>
         <Column className="flex-1 h-full lg:w-1/2 py-16 px-10">
-          <Section className="flex flex-col">
+          <Section className="flex flex-col gap-10">
             <Experiences/>
-            <Skills className="py-10"/>
-
-            <h3 className="text-4xl font-bold text-foreground pb-5">
-              <span id="projects" className="anchor"></span>
-              <span className="text-third">3.</span> Projects
-            </h3>
-
+            <Skills/>
+            <Projects/>
             <Studies/>
           </Section>
         </Column>

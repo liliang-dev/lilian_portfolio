@@ -19,7 +19,7 @@
   --secondary-foreground: 210 40% 98%;
   --third: #8fe59b;
   --third-foreground: 210 40% 98%;
-  --fourth: #e5e693;
+  --fourth: #e9ea96;
   --fourth-foreground: 210 40% 98%;
   --accent: 217.2 32.6% 17.5%;
   --accent-foreground: 210 40% 98%;
@@ -56,4 +56,27 @@
 .border-sketched {
   border:solid 2px var(--foreground);
   border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+}
+
+/* Scrollbar Styling */
+/* ::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--background); 
+} */
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+*::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

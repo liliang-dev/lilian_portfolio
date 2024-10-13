@@ -6,7 +6,7 @@ export const Experiences = (props: PropsWithChildren<{className?:string}>) =>  {
         <div className={props.className}>
             <h3 className="text-4xl font-bold text-foreground pb-5">
                 <span id="experience" className="anchor"></span>
-                <span className="text-primary">1.</span> Experience
+                <span className="text-primary">1.</span> Experiences
             </h3>
             <div className="flex flex-col gap-5">
                 <Experience from={"2024"} to={"NOW"} title={"Fullstack Developer"} company={"Alten"} link="https://www.alten.fr/">
@@ -18,7 +18,7 @@ export const Experiences = (props: PropsWithChildren<{className?:string}>) =>  {
                     Building and improving an application with extensive functionality for various enterprise&apos;s works council. 
                 </Experience>
                 <Experience from={"2021"} to={"2021"} title={"Intership as a Developer"} company={"Couleur CE"} link="https://www.couleur.fr/">
-                    Learned to work effectively in a team and apply the skills I acquired in school.
+                    Learned to work effectively in a team and developed a graphic tool for designing communication posters.
                 </Experience>
             </div>
         </div>
