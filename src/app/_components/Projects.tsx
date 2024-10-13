@@ -2,7 +2,7 @@ import { PropsWithChildren } from "react"
 import { Project } from "./Project"
 import SoLearnSystem from "../images/solearnsystem.jpg"
 import Kingdom from "../images/kingdom.jpg"
-import SmartTrashCan from "../images/SmartTrashCan.png"
+import SmartTrashCan from "../images/smarttrashcan.png"
 
 export const Projects = (props: PropsWithChildren<{className?:string}>) =>  {
     return (
