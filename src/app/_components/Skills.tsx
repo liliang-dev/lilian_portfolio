@@ -28,7 +28,7 @@ export const Skills = (props: PropsWithChildren<{className?:string}>) =>  {
             </h3>
             <section className="flex flex-row flex-wrap gap-3 justify-between text-foreground">
                 {skills.length > 0 && skills.map((skill:any) => (
-                    <Skill key={skill.id} className={`bg-[${skill.color}]`} name={skill.name}/>
+                    <Skill key={skill.id} skill={skill}/>
                 ))}
             </section>
         </div>
