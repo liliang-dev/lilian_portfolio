@@ -9,7 +9,7 @@ export const Studies = (props: PropsWithChildren<{className?:string}>) =>  {
                 <span className="text-fourth">4.</span> Studies
             </h3>
             <div className="flex flex-col gap-5">
-                <Study from={"2020"} to={"2023"} title={"Master's in Software Engineering and Project Management."} company={"Epitech"} link="https://www.epitech.eu/formation-alternance/master-of-science-realite-virtuelle/">
+                <Study from={"2020"} to={"2023"} title={"Master's Degree in Application Design and Development."} company={"Epitech"} link="https://www.epitech.eu/formation-alternance/master-of-science-realite-virtuelle/">
 
                 </Study>
                 <Study from={"2018"} to={"2020"} title={"University Diploma of Technology in Multimedia and Internet Technologies."} company={"IUT Paul Sabatier, Toulouse III"} link="https://iut.univ-tlse3.fr/bachelor-specialite-metiers-du-multimedia-et-de-l-internet-2">
