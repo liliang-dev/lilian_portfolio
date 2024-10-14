@@ -1,20 +1,18 @@
 'use client';
 
-import { PropsWithChildren, Suspense, useEffect, useState } from "react"
+import { PropsWithChildren, useEffect, useState } from "react"
 import { Skill } from "./Skill"
 
 export const Skills = (props: PropsWithChildren<{className?:string}>) =>  {
-    const [isLoading, setIsLoading] = useState(true)
     const [skills, setSkills] = useState([])
 
     function getSkills() {
-        const data = fetch('/api/get-skills', {
+        fetch('/api/get-skills', {
             cache: "no-store"
         }).then((res) => {
             return res.json()
         }).then((data) => {
             setSkills(data.skills.rows);
-            setIsLoading(false);
         })
     }
 
