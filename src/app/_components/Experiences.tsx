@@ -1,7 +1,28 @@
-import { PropsWithChildren } from "react"
+'use client';
+
+import { PropsWithChildren, useEffect, useState } from "react"
 import { Experience } from "./Experience"
+import { LoaderExperiences } from "../loading";
 
 export const Experiences = (props: PropsWithChildren<{className?:string}>) =>  {
+    const [experiences, setExperiences] = useState([])
+    const [loading, setLoading] = useState(true);
+
+    function getExperiences() {
+        fetch('/api/get-experiences?limit=3', {
+            cache: "no-store"
+        }).then((res) => {
+            return res.json()
+        }).then((data) => {
+            setExperiences(data.experiences.rows);
+            setLoading(false);
+        })
+    }
+
+    useEffect(() => {
+        getExperiences()
+    }, [])
+
     return (
         <div className={props.className}>
             <h3 className="text-4xl font-bold text-foreground pb-5">
@@ -9,17 +30,19 @@ export const Experiences = (props: PropsWithChildren<{className?:string}>) =>  {
                 <span className="text-primary">1.</span> Experiences
             </h3>
             <div className="flex flex-col gap-5">
-                <Experience from={"2024"} to={"NOW"} title={"Fullstack Developer"} company={"Alten"} link="https://www.alten.fr/">
-                    At present, I am on a mission with <strong>Airbus Defence & Space</strong> to design, develop, and 
-                    maintain an extensive suite of seven applications specifically 
-                    tailored to meet the unique needs of the spatial industry.
-                </Experience>
-                <Experience from={"2021"} to={"2023"} title={"Apprenticeship as a Developer"} company={"Couleur CE"} link="https://www.couleur.fr/">
-                    Building and improving an application with extensive functionality for various enterprise&apos;s works council. 
-                </Experience>
-                <Experience from={"2021"} to={"2021"} title={"Intership as a Developer"} company={"Couleur CE"} link="https://www.couleur.fr/">
-                    Learned to work effectively in a team and developed a graphic tool for designing communication posters.
-                </Experience>
+                {loading ? (
+                    <>
+                        <LoaderExperiences />
+                        <LoaderExperiences />
+                        <LoaderExperiences />
+                    </>
+                ) : (
+                    experiences.length > 0 && experiences.map((experience:any) => (
+                        <Experience key={experience.id} from={experience.from_year} to={experience.to_year} title={experience.title} company={experience.company} link={experience.link}>
+                            {experience.description}
+                        </Experience>
+                    ))
+                )}
             </div>
         </div>
     )

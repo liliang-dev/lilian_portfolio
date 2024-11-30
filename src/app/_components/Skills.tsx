@@ -2,9 +2,11 @@
 
 import { PropsWithChildren, useEffect, useState } from "react"
 import { Skill } from "./Skill"
+import LoaderSkills from "../loading";
 
 export const Skills = (props: PropsWithChildren<{className?:string}>) =>  {
     const [skills, setSkills] = useState([])
+    const [loading, setLoading] = useState(true);
 
     function getSkills() {
         fetch('/api/get-skills', {
@@ -13,6 +15,7 @@ export const Skills = (props: PropsWithChildren<{className?:string}>) =>  {
             return res.json()
         }).then((data) => {
             setSkills(data.skills.rows);
+            setLoading(false);
         })
     }
 
@@ -27,9 +30,15 @@ export const Skills = (props: PropsWithChildren<{className?:string}>) =>  {
                 <span className="text-secondary">2.</span> Skills
             </h3>
             <section className="flex flex-row flex-wrap gap-3 justify-between text-foreground">
-                {skills.length > 0 && skills.map((skill:any) => (
-                    <Skill key={skill.id} skill={skill}/>
-                ))}
+                {loading ? (
+                    <>
+                        <LoaderSkills />
+                    </>
+                ) : (
+                    skills.length > 0 && skills.map((skill:any) => (
+                        <Skill key={skill.id} skill={skill}/>
+                    ))
+                )}
             </section>
         </div>
     )
