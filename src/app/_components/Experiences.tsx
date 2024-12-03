@@ -32,9 +32,9 @@ export const Experiences = (props: PropsWithChildren<{className?:string}>) =>  {
             <div className="flex flex-col gap-5">
                 {loading ? (
                     <>
-                        <LoaderExperiences />
-                        <LoaderExperiences />
-                        <LoaderExperiences />
+                        <LoaderExperiences/>
+                        <LoaderExperiences/>
+                        <LoaderExperiences/>
                     </>
                 ) : (
                     experiences.length > 0 && experiences.map((experience:any) => (
