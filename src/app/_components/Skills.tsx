@@ -2,7 +2,7 @@
 
 import { PropsWithChildren, useEffect, useState } from "react"
 import { Skill } from "./Skill"
-import LoaderSkills from "../loading";
+import { LoaderSkills } from "../loading";
 
 export const Skills = (props: PropsWithChildren<{className?:string}>) =>  {
     const [skills, setSkills] = useState([])

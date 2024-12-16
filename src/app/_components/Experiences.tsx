@@ -3,13 +3,20 @@
 import { PropsWithChildren, useEffect, useState } from "react"
 import { Experience } from "./Experience"
 import { LoaderExperiences } from "../loading";
+import { ShowMore } from "./ShowMore";
+import { HomeArrow } from "./HomeArrow";
 
-export const Experiences = (props: PropsWithChildren<{className?:string}>) =>  {
+export const Experiences = (props: PropsWithChildren<{className?:string, isPage: boolean}>) =>  {
     const [experiences, setExperiences] = useState([])
     const [loading, setLoading] = useState(true);
 
     function getExperiences() {
-        fetch('/api/get-experiences?limit=3', {
+        let limit = 3
+        if(props.isPage) {
+            limit = 99
+        }
+        
+        fetch('/api/get-experiences?limit='+limit, {
             cache: "no-store"
         }).then((res) => {
             return res.json()
@@ -25,9 +32,12 @@ export const Experiences = (props: PropsWithChildren<{className?:string}>) =>  {
 
     return (
         <div className={props.className}>
-            <h3 className="text-4xl font-bold text-foreground pb-5">
-                <span id="experience" className="anchor"></span>
-                <span className="text-primary">1.</span> Experiences
+            <h3 className="flex text-4xl font-bold text-foreground pb-5 justify-between">
+				{props.isPage && (<HomeArrow/>)}
+				<div>
+					{!props.isPage && <span className="text-primary">1. </span>}Experiences
+				</div>
+				<span id="experience" className="anchor"></span>
             </h3>
             <div className="flex flex-col gap-5">
                 {loading ? (
@@ -37,11 +47,14 @@ export const Experiences = (props: PropsWithChildren<{className?:string}>) =>  {
                         <LoaderExperiences/>
                     </>
                 ) : (
-                    experiences.length > 0 && experiences.map((experience:any) => (
-                        <Experience key={experience.id} from={experience.from_year} to={experience.to_year} title={experience.title} company={experience.company} link={experience.link}>
-                            {experience.description}
-                        </Experience>
-                    ))
+                    <>
+                        {experiences.length > 0 && experiences.map((experience:any) => (
+                            <Experience key={experience.id} from={experience.from_year} to={experience.to_year} title={experience.title} company={experience.company} link={experience.link}>
+                                {experience.description}
+                            </Experience>
+                        ))}
+                        {!props.isPage && <ShowMore link="/experiences"/>}
+                    </>
                 )}
             </div>
         </div>

@@ -1,16 +1,23 @@
 import React from 'react';
 
-const LoaderSkills = () => {
+/** Default export to not missload in other component */
+
+export const Default = () => {
+  return (<></>);
+};
+export default Default;
+
+/** Loaders */ 
+
+export const LoaderSkills = () => {
   return (
-    <div className="animate-pulse flex flex-wrap flex-col gap-5 w-full">
+    <div className={"animate-pulse flex flex-wrap flex-col gap-5 w-full"}>
         <div className={"flex-1 p-4 rounded-lg duration-300 bg-[#d1d1d1]"}></div>
         <div className={"flex-1 p-4 rounded-lg duration-300 bg-[#d1d1d1]"}></div>
         <div className={"flex-1 p-4 rounded-lg duration-300 bg-[#d1d1d1]"}></div>
     </div>
   );
 };
-
-export default LoaderSkills;
 
 export const LoaderExperiences = () => {
   return (
