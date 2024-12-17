@@ -1,28 +1,7 @@
-'use client';
+import { PropsWithChildren } from "react"
+import { Skill, SkillObject } from "./Skill"
 
-import { PropsWithChildren, useEffect, useState } from "react"
-import { Skill } from "./Skill"
-import { LoaderSkills } from "../loading";
-
-export const Skills = (props: PropsWithChildren<{className?:string}>) =>  {
-    const [skills, setSkills] = useState([])
-    const [loading, setLoading] = useState(true);
-
-    function getSkills() {
-        fetch('/api/get-skills', {
-            cache: "no-store"
-        }).then((res) => {
-            return res.json()
-        }).then((data) => {
-            setSkills(data.skills.rows);
-            setLoading(false);
-        })
-    }
-
-    useEffect(() => {
-        getSkills()
-    }, [])
-
+export const Skills = (props: PropsWithChildren<{ className?: string, skills: SkillObject[] }>) => {
     return (
         <div className={props.className}>
             <h3 className="text-4xl font-bold text-foreground pb-5">
@@ -30,15 +9,9 @@ export const Skills = (props: PropsWithChildren<{className?:string}>) =>  {
                 <span className="text-secondary">2.</span> Skills
             </h3>
             <section className="flex flex-row flex-wrap gap-3 justify-between text-foreground">
-                {loading ? (
-                    <>
-                        <LoaderSkills />
-                    </>
-                ) : (
-                    skills.length > 0 && skills.map((skill:any) => (
-                        <Skill key={skill.id} skill={skill}/>
-                    ))
-                )}
+                {props.skills.length > 0 && props.skills.map((skill: any) => (
+                    <Skill key={skill.id} skill={skill} />
+                ))}
             </section>
         </div>
     )

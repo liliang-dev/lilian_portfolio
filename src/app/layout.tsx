@@ -44,8 +44,9 @@ export default function RootLayout({
               </Section>
             </Column>
             <Column className="flex-1 h-full lg:w-1/2 py-16 px-10">
-              {/** Class in the template.tsx */}
-              <Section>{children}</Section>
+              <Section>
+                {children}
+              </Section>
             </Column>
           </div>
         </main>
