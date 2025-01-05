@@ -3,7 +3,6 @@ import Link from "next/link"
 import { PropsWithChildren } from "react"
 import Image, { StaticImageData } from 'next/image'
 import { Skill, SkillObject } from "./Skill";
-import { Projects } from "./Projects";
 export interface ProjectObject {
     id: number;
     title:string;
