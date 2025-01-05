@@ -15,7 +15,6 @@ export interface ProjectObject {
 }
 
 export const Project = (props: PropsWithChildren<{className?:string, project: ProjectObject}>) =>  {
-    console.log(props.project)
     return (
         <Link href={props.project.link || ''} target="_blank" className={cn("grid grid-cols-12 max-sm:flex max-sm:flex-col max-sm:grid-rows-2 max-sm:grid-flow-col gap-5 font-grand p-5 rounded-lg duration-300 bg-[#f9f9f9] hover:bg-[#f1f1f1] hover:scale-105 text-foreground", props.className)}>
             <div className={`col-span-3 text-xs justify-center items-center`}>
