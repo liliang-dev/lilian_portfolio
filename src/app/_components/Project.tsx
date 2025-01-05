@@ -24,7 +24,7 @@ export const Project = (props: PropsWithChildren<{className?:string, project: Pr
                 <p className="text-sm">
                     {props.project.description}
                 </p>
-                <div className="flex gap-2">
+                <div className="flex gap-2 max-sm:justify-center">
                     {props.project.skills?.length > 0 && props.project.skills.map((skill: any) => (
                         <Skill key={skill.id} skill={skill} />
                     ))}
