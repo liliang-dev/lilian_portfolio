@@ -12,7 +12,13 @@ import { sql } from '@vercel/postgres';
 export default async function HomePage() {
   const experiences = await sql<ExperienceObject>`select * from experiences order by from_year desc limit 3;`;
   const skills = await sql<SkillObject>`select * from skills;`;
-  const projects = await sql<ProjectObject>`select * from projects order by sort_order asc limit 3;`;
+  const projects = await sql<ProjectObject>`SELECT p.*, COALESCE(JSON_AGG(JSON_BUILD_OBJECT('id', s.id,'color', s.color,'name', s.name)) FILTER (WHERE s.id IS NOT NULL), '[]') AS skills
+                                            FROM projects p
+                                            LEFT JOIN project_skills ps ON ps.project_id = p.id
+                                            LEFT JOIN skills s ON ps.skill_id = s.id
+                                            GROUP BY p.id
+                                            ORDER BY p.sort_order
+                                            LIMIT 3;`;
   const studies = await sql<StudyObject>`select * from studies order by from_year desc limit 4;`;
 
   return (
