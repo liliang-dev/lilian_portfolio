@@ -1,5 +1,5 @@
 // Force getting dynamic data from PG
-export const revalidate = 1;
+export const fetchCache = 'force-no-store';
 
 import { Skills } from "./_components/Skills";
 import { Experiences } from "./_components/Experiences";
