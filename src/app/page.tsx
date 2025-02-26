@@ -1,3 +1,6 @@
+// Force getting dynamic data from PG
+export const dynamic = "force-dynamic";
+
 import { Skills } from "./_components/Skills";
 import { Experiences } from "./_components/Experiences";
 import { Projects } from "./_components/Projects";
