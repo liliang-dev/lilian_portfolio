@@ -1,3 +1,5 @@
+export const fetchCache = 'force-no-store';
+
 import { Experiences } from "../_components/Experiences";
 import { ExperienceObject } from "../_components/Experience";
 import { sql } from "@vercel/postgres";

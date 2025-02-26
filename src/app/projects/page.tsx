@@ -1,3 +1,5 @@
+export const fetchCache = 'force-no-store';
+
 import { Projects } from "../_components/Projects";
 import { ProjectObject } from "../_components/Project";
 import { sql } from "@vercel/postgres";

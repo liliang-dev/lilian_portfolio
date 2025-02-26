@@ -1,4 +1,3 @@
-// Force getting dynamic data from PG
 export const fetchCache = 'force-no-store';
 
 import { Skills } from "./_components/Skills";
