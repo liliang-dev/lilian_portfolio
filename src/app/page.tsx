@@ -1,5 +1,5 @@
 // Force getting dynamic data from PG
-export const dynamic = "force-dynamic";
+export const revalidate = 1;
 
 import { Skills } from "./_components/Skills";
 import { Experiences } from "./_components/Experiences";
